@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/webim-test-login/static/css/main.85706086.chunk.css",
-    "main.js": "/webim-test-login/static/js/main.42a8782c.chunk.js",
-    "main.js.map": "/webim-test-login/static/js/main.42a8782c.chunk.js.map",
+    "main.js": "/webim-test-login/static/js/main.fe0db94d.chunk.js",
+    "main.js.map": "/webim-test-login/static/js/main.fe0db94d.chunk.js.map",
     "runtime-main.js": "/webim-test-login/static/js/runtime-main.f945fbc1.js",
     "runtime-main.js.map": "/webim-test-login/static/js/runtime-main.f945fbc1.js.map",
     "static/js/2.44c3493e.chunk.js": "/webim-test-login/static/js/2.44c3493e.chunk.js",
     "static/js/2.44c3493e.chunk.js.map": "/webim-test-login/static/js/2.44c3493e.chunk.js.map",
     "index.html": "/webim-test-login/index.html",
-    "precache-manifest.85052be4f082824ab737466d5c35fab5.js": "/webim-test-login/precache-manifest.85052be4f082824ab737466d5c35fab5.js",
+    "precache-manifest.6a38b25b536769e9bb74d719178810ef.js": "/webim-test-login/precache-manifest.6a38b25b536769e9bb74d719178810ef.js",
     "service-worker.js": "/webim-test-login/service-worker.js",
     "static/css/main.85706086.chunk.css.map": "/webim-test-login/static/css/main.85706086.chunk.css.map",
     "static/js/2.44c3493e.chunk.js.LICENSE.txt": "/webim-test-login/static/js/2.44c3493e.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.f945fbc1.js",
     "static/js/2.44c3493e.chunk.js",
     "static/css/main.85706086.chunk.css",
-    "static/js/main.42a8782c.chunk.js"
+    "static/js/main.fe0db94d.chunk.js"
   ]
 }

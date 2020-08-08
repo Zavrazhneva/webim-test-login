@@ -14,7 +14,7 @@ import S from './Login.module.css';
 export default function AuthExample() {
     return (
         <ProvideAuth>
-            <Router>
+            <Router basename={process.env.PUBLIC_URL}>
                 <div className={S.content}>
                     <Switch>
                         <Route exact path="/">
