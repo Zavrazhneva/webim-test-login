@@ -1,91 +1,128 @@
+body {
+    min-width: 320px;
+    max-height: 100vh;
+    overflow: hidden;
+}
+
 .content {
-    margin: 150px auto;
-    text-align: center;
+    margin: 100px auto 20px auto;
     position: relative;
 }
+
 .tableTd {
-    padding: 5px;
+    padding: 7px;
     border: 1px solid #f0f0f0;
-    width: 100%;
     box-sizing: border-box;
     margin: 0;
     text-overflow: ellipsis;
     overflow: hidden;
-    flex-grow:4
+    width: 33.3%;
+    text-align: left;
+}
+.errorText {
+    color: #f44336;
 }
 .tableTdId {
-    width: 100px;
+    width: 50px;
+    flex-grow: 0;
+    text-align: center;
 }
-.table {
-    border-spacing: 0;
+.tableWrapper {
+    height: calc(100vh - 150px);
+    overflow-x: auto;
+    margin: 20px;
+    box-sizing: border-box;
+    display: flex;
     width: 100%;
-    margin: 0 50px;
-    border: 1px solid #f0f0f0;
-    max-width: 900px;
+}
 
+.table {
+    margin: 0 auto;
+    width: 900px;
+    display: flex;
+    flex-direction: column;
+    min-width: 550px;
 }
+
 .tableRow {
-   display: flex;
-    justify-content: space-between;
+    display: flex;
     width: 100%;
 }
+
 .tableRowTitle {
     text-transform: uppercase;
     font-weight: 600;
 }
+
 input {
     border: 1px solid #f0f0f0;
 }
+
 .valid {
     border-color: aquamarine;
 }
+
 .noValid {
     border-color: rosybrown;
     background: rosybrown;
 }
+
 .filterWrapper {
     display: flex;
     align-items: center;
 }
+
 .form {
     display: flex;
     flex-flow: column;
-    width: 320px;
+    max-width: 320px;
     height: 200px;
     justify-content: space-between;
     margin: auto;
     padding: 20px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     border-radius: 5px;
-
+}
+.formWrapper {
+    padding: 0 20px;
 }
 .headerWrapper {
     padding: 20px 0;
     width: 100%;
     position: fixed;
     background: #f0f0f0;
-    top:0;
+    top: 0;
     display: flex;
     justify-content: space-around;
 }
+
 .header {
     width: 900px;
     margin: 0 50px;
     display: flex;
     justify-content: space-between;
 }
+
 .signout {
     width: 120px;
 }
+
 .dataWrapper {
     width: 100%;
     position: relative;
     display: flex;
-    justify-content: center;
 }
+
 .filterLabel {
     margin-right: 20px;
 }
+
+@media (max-width: 850px) {
+    .header {
+        margin: 0 20px;
+    }
+}
+
 @media (max-width: 800px) {
     .tableTd {
         font-size: 14px;
@@ -96,11 +133,13 @@ input {
     .tableTd {
         font-size: 14px;
     }
-    .table {
-        min-width: 550px;
-        overflow-x: auto;
-        margin: 0 20px;
+}
 
+@media (max-width: 500px) {
+    .filterLabel {
+        display: none;
     }
-
+    .filterWrapper {
+        margin-right: 10px;
+    }
 }

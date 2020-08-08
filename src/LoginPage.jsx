@@ -1,7 +1,6 @@
 import {Redirect, useHistory, useLocation} from "react-router-dom";
-import React, {useState, useEffect } from "react";
+import React, {useState, useEffect} from "react";
 import {useAuth} from "./Authcontext";
-import cx from 'classnames';
 import S from './Login.module.css';
 import {TextField, Button} from '@material-ui/core';
 
@@ -13,7 +12,9 @@ export function LoginPage() {
 
     let {from} = location.state || {from: {pathname: "/protected"}};
     const [userName, setUsername] = useState(null);
-    const [password, setPassword] = useState(null);
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState(null);
+    const [noValid, setNoValidUser] = useState(false);
 
     useEffect(() => {
         if (userName === null) {
@@ -28,47 +29,48 @@ export function LoginPage() {
             setNoValidUser(false)
         } else {
             setNoValidUser(true)
-            console.log('error')
         }
-    },[userName])
+    }, [userName])
 
-
-
-
-    async function getUsers(e) {
+    async function login(e) {
         e.preventDefault();
         try {
             await auth.signIn(userName, password);
             history.replace(from);
         } catch (error) {
-            console.error(error);
+            setError(error.response.data.non_field_errors[0]);
+            setPassword('');
         }
     }
 
-    const [noValid, setNoValidUser] = useState(false);
-
     const onChangeUsername = (e) => {
-        setUsername(e.target.value)
+        setUsername(e.target.value);
+        setError(null)
     }
 
     const onChangePassword = (e) => {
-        setPassword(e.target.value)
+        setPassword(e.target.value);
+        setError(null)
     }
-
 
     if (auth.token) {
         return <Redirect to="/protected"/>
     }
 
     return (
-        <form className={S.form}>
-            <TextField error={noValid}  id="outlined-basic" label="Логин:" variant="outlined" type="text" onChange={onChangeUsername}
-                       name='username' />
-            <TextField id="outlined-basic" label="Пароль:" variant="outlined" type="text" onChange={onChangePassword}
-                       name='password'/>
-            <Button onClick={getUsers} variant="contained" color="primary" to="/protected">
-                Войти
-            </Button>
-        </form>
+        <div className={S.formWrapper}>
+            <form className={S.form}>
+                <TextField error={noValid} id="outlined-basic" label="Логин:" variant="outlined" type="text"
+                           onChange={onChangeUsername}
+                           name='username'/>
+                <TextField value={password} id="outlined-basic" label="Пароль:" variant="outlined" type="password"
+                           onChange={onChangePassword}
+                           name='password'/>
+                {error && <span className={S.errorText}>{error}</span>}
+                <Button disabled={noValid || !password.length || !userName.length} onClick={login} variant="contained" color="primary" to="/protected">
+                    Войти
+                </Button>
+            </form>
+        </div>
     );
 }

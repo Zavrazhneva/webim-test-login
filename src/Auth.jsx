@@ -3,9 +3,8 @@ import {
     BrowserRouter as Router,
     Switch,
     Route,
-    Link, Redirect,
+    Redirect,
 } from "react-router-dom";
-import {AuthButton} from "./AuthButton";
 import {PrivateRoute} from "./PrivateRoute";
 import {LoginPage} from "./LoginPage";
 import {ProvideAuth} from "./Authcontext";

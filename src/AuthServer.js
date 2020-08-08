@@ -5,21 +5,17 @@ export const authServer = {
     isLogin: false,
 
     async signIn(username, password) {
-        try {
-            const response = await axios.post('http://emphasoft-test-assignment.herokuapp.com/api-token-auth/' , {
-                username: username,
-                password:password
-            });
-            this.token = response.data.token
-            localStorage.setItem('token', JSON.stringify(this.token));
-            this.isLogin = true;
-        } catch (error) {
-            console.error(error);
-        }
+        const response = await axios.post('http://emphasoft-test-assignment.herokuapp.com/api-token-auth/', {
+            username: username,
+            password: password
+        });
+        this.token = response.data.token
+        localStorage.setItem('token', JSON.stringify(this.token));
+        this.isLogin = true;
     },
 
     signOut() {
-    this.isLogin = false;
-    this.token = null
+        this.isLogin = false;
+        this.token = null
     },
 }

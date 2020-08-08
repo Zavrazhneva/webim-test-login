@@ -18,7 +18,7 @@ export function Protected() {
                 headers: {Authorization: token}
             })
             const users = response.data;
-            const user = users
+            users
                 .sort(function (a, b) {
                     if (a.id > b.id) {
                         return 1;
@@ -26,14 +26,12 @@ export function Protected() {
                     if (a.id < b.id) {
                         return -1;
                     }
-                    // a должно быть равным b
                     return 0;
                 })
-            setUsers(user);
+            setUsers(users);
         }
-
         fetchData();
-    }, []);
+    }, [token]);
 
     function renderUsers(users) {
         if (users !== null) {
@@ -48,12 +46,9 @@ export function Protected() {
                         <p className={S.tableTd}>{user.last_name}</p>
                         <p className={S.tableTd}>{user.first_name}</p>
                     </div>
-
                 })
         }
-
     }
-
 
     function filterUserInput(e) {
         setFilterUser(e.target.value);
@@ -68,21 +63,25 @@ export function Protected() {
                         <label htmlFor="filter" className={S.filterLabel}>Фильтр</label>
                         <TextField id="standard-size-small" size="small" label="Имя пользователя" variant="outlined"
                                    type="text"
-                                   onChange={filterUserInput}/>
+                                   onChange={filterUserInput}
+                      />
                     </div>
                     <AuthButton/>
                 </div>
             </div>
 
-            <div className={S.table}>
-                <div className={cx(S.tableRow, S.tableRowTitle)}>
-                    <p className={cx(S.tableTd, S.tableTdId)}>ID</p>
-                    <p className={S.tableTd}>username</p>
-                    <p className={S.tableTd}>last_name</p>
-                    <p className={S.tableTd}>first_name</p>
+            <div className={S.tableWrapper}>
+                <div className={S.table}>
+                    <div className={cx(S.tableRow, S.tableRowTitle)}>
+                        <p className={cx(S.tableTd, S.tableTdId)}>ID</p>
+                        <p className={S.tableTd}>username</p>
+                        <p className={S.tableTd}>last_name</p>
+                        <p className={S.tableTd}>first_name</p>
+                    </div>
+                    {renderUsers(users)}
                 </div>
-                {renderUsers(users)}
             </div>
+
         </div>
 
     )
