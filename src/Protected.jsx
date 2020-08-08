@@ -14,7 +14,7 @@ export function Protected() {
     const token = `Token ${auth.token}`;
     useEffect(() => {
         async function fetchData() {
-            const response = await axios.get('http://emphasoft-test-assignment.herokuapp.com/api/v1/users/', {
+            const response = await axios.get('https://emphasoft-test-assignment.herokuapp.com/api/v1/users/', {
                 headers: {Authorization: token}
             })
             const users = response.data;

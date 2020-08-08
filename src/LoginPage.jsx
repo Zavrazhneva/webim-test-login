@@ -60,10 +60,10 @@ export function LoginPage() {
     return (
         <div className={S.formWrapper}>
             <form className={S.form}>
-                <TextField error={noValid} id="outlined-basic" label="Логин:" variant="outlined" type="text"
+                <TextField error={noValid} label="Логин:" variant="outlined" type="text"
                            onChange={onChangeUsername}
                            name='username'/>
-                <TextField value={password} id="outlined-basic" label="Пароль:" variant="outlined" type="password"
+                <TextField value={password} label="Пароль:" variant="outlined" type="password"
                            onChange={onChangePassword}
                            name='password'/>
                 {error && <span className={S.errorText}>{error}</span>}

@@ -5,7 +5,7 @@ export const authServer = {
     isLogin: false,
 
     async signIn(username, password) {
-        const response = await axios.post('http://emphasoft-test-assignment.herokuapp.com/api-token-auth/', {
+        const response = await axios.post('https://emphasoft-test-assignment.herokuapp.com/api-token-auth/', {
             username: username,
             password: password
         });
