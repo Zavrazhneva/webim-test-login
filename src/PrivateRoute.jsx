@@ -6,10 +6,12 @@ export function PrivateRoute({ children, ...rest }) {
     return (
         <Route
             {...rest}
-            render={({ location }) =>
-                auth.token ? (
-                    children
-                ) : (
+            render={({ location }) => {
+                if (auth.token) {
+                    return  children
+                }
+                console.log(location);
+                return (
                     <Redirect
                         to={{
                             pathname: "/",
@@ -17,7 +19,7 @@ export function PrivateRoute({ children, ...rest }) {
                         }}
                     />
                 )
-            }
+            }}
         />
     );
 }

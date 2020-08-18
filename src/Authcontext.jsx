@@ -1,7 +1,6 @@
 import React, {createContext, useContext, useState} from "react";
 import {authServer} from "./AuthServer";
 
-
 function useProvideAuth() {
     const [token, setToken] = useState(authServer.token);
 

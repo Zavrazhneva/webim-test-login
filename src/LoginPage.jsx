@@ -7,12 +7,13 @@ import {TextField, Button} from '@material-ui/core';
 export function LoginPage() {
     let history = useHistory();
     let location = useLocation();
+    console.log(location);
     let auth = useAuth();
 
 
-    let {from} = location.state || {from: {pathname: "/protected"}};
-    const [userName, setUsername] = useState(null);
-    const [password, setPassword] = useState('');
+    let { from } = location.state || {from: {pathname: "/protected"}};
+    const [userName, setUsername] = useState('test_super');
+    const [password, setPassword] = useState('Nf<U4f<rDbtDxAPn');
     const [error, setError] = useState(null);
     const [noValid, setNoValidUser] = useState(false);
 
@@ -56,12 +57,11 @@ export function LoginPage() {
     if (auth.token) {
         return <Redirect to="/protected"/>
     }
-
     return (
         <div className={S.formWrapper}>
             <form className={S.form}>
                 <TextField error={noValid} label="Логин:" variant="outlined" type="text"
-                           onChange={onChangeUsername}
+                           onChange={onChangeUsername} value={userName}
                            name='username'/>
                 <TextField value={password} label="Пароль:" variant="outlined" type="password"
                            onChange={onChangePassword}
